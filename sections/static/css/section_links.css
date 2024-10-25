@@ -1,0 +1,14 @@
+#links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#links a:hover {
+    text-decoration: underline;
+}

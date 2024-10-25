@@ -5,6 +5,9 @@ from .forms import ContactForm
 
 
 def home(request):
+    key_skills = Skill.objects.filter(is_key_skill=True)
+    tech_skills = Skill.objects.filter(is_key_skill=False)
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -19,8 +22,17 @@ def home(request):
                 ['your-email@example.com'],
                 fail_silently=False,
             )
-            return render(request, 'home.html', {'form': form, 'success': True})
+            return render(request, 'home.html', {
+                'form': form,
+                'success': True,
+                'key_skills': key_skills,
+                'tech_skills': tech_skills,
+            })
     else:
         form = ContactForm()
 
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'home.html', {
+        'form': form,
+        'key_skills': key_skills,
+        'tech_skills': tech_skills,
+    })

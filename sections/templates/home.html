@@ -1,48 +1,160 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'css/contact_form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_hello.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_skills.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_education.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_links.css' %}">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        body {
+            background: linear-gradient(270deg, #ff5f6d, #ffc371);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            padding-top: 60px;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my portfolio website!</h1>
+    <header class="welcome-header">
+        <h1>Welcome to my portfolio</h1>
+    </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">My Website</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#hello">Hello</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Me</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li><a href="#hello">Hello</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#links">Contact</a></li>
+            <li><a href="#contact-form">Contact Form</a></li>
+        </ul>
     </nav>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        {% if success %}
-            <p>Thank you for your message! I will get back to you soon.</p>
-        {% else %}
-            <form method="POST" action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Send</button>
-            </form>
-        {% endif %}
+    <section id="hello">
+    <div class="hello-container">
+        <img src="{% static 'images/profile.png' %}" alt="Your Image" class="hello-image">
+        <div class="hello-description">
+            <h2>Hello</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to
+                make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged.
+                It was popularised in the 1960s with the release of Letraset sheets containing
+                Lorem Ipsum passages, and more recently with desktop publishing software like
+                Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to
+                make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged.
+                It was popularised in the 1960s with the release of Letraset sheets containing
+                Lorem Ipsum passages, and more recently with desktop publishing software like
+                Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+        </div>
+    </div>
     </section>
+
+    <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="key-skills">
+            <h3>Key Skills</h3>
+            <ul>
+                {% for skill in key_skills %}
+                    <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+            <div class="example-skills">
+                <ul>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                    <li>Effective Communication</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tech-skills">
+            <h3>Technical Skills</h3>
+            <ul>
+                {% for skill in tech_skills %}
+                    <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+            <div class="example-skills">
+                <ul>
+                    <li>Python Programming</li>
+                    <li>JavaScript Development</li>
+                    <li>Database Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section id="education">
+    <h2>Education</h2>
+    <div class="education-description">
+        <p>
+            I have a strong educational background that has equipped me with the necessary skills and knowledge
+            to excel in my field. Here are some of the notable qualifications I have achieved:
+        </p>
+        <ul>
+            <li>Bachelor of Science in Computer Science - University Name (Year)</li>
+            <li>Full Stack Web Development Certification - Institution Name (Year)</li>
+            <li>Data Science Bootcamp - Institution Name (Year)</li>
+        </ul>
+    </div>
+    </section>
+
+    <section id="links">
+    <h2>Connect with Me</h2>
+    <p>
+        <a href="https://www.linkedin.com/in/zdravko-galchov-b2354b333/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/Galchov" target="_blank">GitHub</a>
+    </p>
+    </section>
+
+
+    <section id="contact-form">
+        <h2>Contact Form</h2>
+        <form action="/submit_contact/" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
 </body>
 </html>

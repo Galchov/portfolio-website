@@ -1,0 +1,20 @@
+.education-description {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.education-description p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.education-description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.education-description li {
+    padding: 5px 0;
+}
