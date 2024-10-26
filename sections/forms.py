@@ -7,14 +7,17 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={'class': 'form-control'},
         ),
+        required=True,
     )
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={'class': 'form-control'},
         ),
+        required=True,
     )
     message = forms.CharField(
         widget=forms.Textarea(
             attrs={'class': 'form-control'},
         ),
+        required=True,
     )

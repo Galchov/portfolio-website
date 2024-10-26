@@ -1,12 +1,14 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
 from .models import Profile, Skill, Education, Contact
 from django.core.mail import send_mail
+from django.contrib import messages
 from .forms import ContactForm
 
 
 def home(request):
     key_skills = Skill.objects.filter(is_key_skill=True)
     tech_skills = Skill.objects.filter(is_key_skill=False)
+    form = ContactForm()
 
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -17,19 +19,13 @@ def home(request):
 
             send_mail(
                 f"Message from {name}",
-                message,
-                email,
-                ['your-email@example.com'],
+                message=message,
+                from_email=email,
+                recipient_list=[],
                 fail_silently=False,
             )
-            return render(request, 'home.html', {
-                'form': form,
-                'success': True,
-                'key_skills': key_skills,
-                'tech_skills': tech_skills,
-            })
-    else:
-        form = ContactForm()
+            messages.success(request, 'Your message has been sent successfully!')
+            return redirect('home')
 
     return render(request, 'home.html', {
         'form': form,

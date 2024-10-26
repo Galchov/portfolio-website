@@ -21,7 +21,7 @@
             z-index: 1000;
         }
         body {
-            background: linear-gradient(270deg, #ff5f6d, #ffc371);
+            background: linear-gradient(270deg, #2F4F4F, #DCDCDC);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             padding-top: 60px;
@@ -48,7 +48,7 @@
             <li><a href="#hello">Hello</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#links">Contact</a></li>
+            <li><a href="#links">Links</a></li>
             <li><a href="#contact-form">Contact Form</a></li>
         </ul>
     </nav>
@@ -139,10 +139,10 @@
     </p>
     </section>
 
-
     <section id="contact-form">
         <h2>Contact Form</h2>
-        <form action="/submit_contact/" method="POST" class="contact-form">
+        <form action="{% url 'home' %}" method="POST" class="contact-form">
+            {% csrf_token %}
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
