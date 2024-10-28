@@ -1,34 +1,32 @@
-from django.shortcuts import render, redirect
-from .models import Profile, Skill, Education, Contact
+from django.conf import settings
+from django.shortcuts import render
+
 from django.core.mail import send_mail
-from django.contrib import messages
-from .forms import ContactForm
 
 
 def home(request):
-    key_skills = Skill.objects.filter(is_key_skill=True)
-    tech_skills = Skill.objects.filter(is_key_skill=False)
-    form = ContactForm()
-
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
 
-            send_mail(
-                f"Message from {name}",
-                message=message,
-                from_email=email,
-                recipient_list=[],
-                fail_silently=False,
-            )
-            messages.success(request, 'Your message has been sent successfully!')
-            return redirect('home')
+        # Get form data
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
 
-    return render(request, 'home.html', {
-        'form': form,
-        'key_skills': key_skills,
-        'tech_skills': tech_skills,
-    })
+        # Compose email
+        subject = f'New contact form submission from {name}'
+        email_message = f'Sender: {name}\nEmail: {email}\nMessage: {message}'
+        recipient_list = [settings.DEFAULT_FROM_EMAIL]
+
+        # Send email
+        send_mail(
+            subject=subject,
+            message=email_message,
+            from_email=email,
+            recipient_list=recipient_list,
+            fail_silently=False,
+        )
+
+        # Go to page after success
+        return render(request, 'home.html')
+
+    return render(request, 'home.html')
