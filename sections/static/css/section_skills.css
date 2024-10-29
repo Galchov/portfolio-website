@@ -1,4 +1,3 @@
-
 .skills-section {
     margin-top: 80px;
     padding: 20px;
@@ -9,16 +8,22 @@
 
 .skills-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .key-skills {
-    width: 45%;
+    width: 100%;
+    margin-right: 70px;
 }
 
 .key-skills h3 {
     border-bottom: 1px solid #00FF00;
     padding-bottom: 10px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
 .key-skills ul {
@@ -33,12 +38,17 @@
 }
 
 .tech-skills {
-    width: 45%;
+    width: 100%;
+    margin-left: 70px;
 }
 
 .tech-skills h3 {
     border-bottom: 1px solid #00FF00;
     padding-bottom: 10px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
 .tech-skills ul {

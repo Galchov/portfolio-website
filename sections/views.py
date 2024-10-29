@@ -3,6 +3,8 @@ from django.shortcuts import render
 
 from django.core.mail import send_mail
 
+from .models import Skill
+
 
 def home(request):
     if request.method == 'POST':
@@ -29,4 +31,12 @@ def home(request):
         # Go to page after success
         return render(request, 'home.html')
 
-    return render(request, 'home.html')
+    key_skills = Skill.objects.filter(is_key_skill=True)
+    tech_skills = Skill.objects.filter(is_key_skill=False)
+
+    context = {
+        'key_skills': key_skills,
+        'tech_skills': tech_skills,
+    }
+
+    return render(request, 'home.html', context)
