@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/section_education.css' %}">
     <link rel="stylesheet" href="{% static 'css/section_links.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact_form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/code_box.css' %}">
     <style>
         html {
             scroll-behavior: smooth;
@@ -27,9 +28,13 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            border-top: 5px solid #00FF00;
+            padding-top: 20px;
+            margin-top: 30px;
+            padding-bottom: 20px;
+
         }
         #skills, #education, #links, #contact-form {
             padding: 20px;
@@ -53,7 +58,6 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li><a href="#hello" id="hello-button" class="blinking">Hello</a></li>
-{#            <li><a href="#hello">Hello</a></li>#}
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#links">Links</a></li>
@@ -70,6 +74,18 @@
         });
     });
     </script>
+
+    <section class="code-section">
+    <div class="code-display">
+        <button class="nav-button" id="prev-button">&lt;</button>
+        <div class="code-box">
+            <h3 id="code-title"></h3>
+            <pre><code id="code-snippet"></code></pre>
+        </div>
+        <button class="nav-button" id="next-button">&gt;</button>
+    </div>
+    </section>
+    <script src="{% static 'js/code_box.js' %}"></script>
 
     <section id="hello">
     <div class="hello-container">

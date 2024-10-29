@@ -22,6 +22,7 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 1em;
     transition: border-color 0.3s ease;
+    resize: none;
 }
 
 .contact-form button {
