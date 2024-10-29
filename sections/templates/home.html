@@ -4,26 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-    <link rel="stylesheet" href="{% static 'css/contact_form.css' %}">
     <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
     <link rel="stylesheet" href="{% static 'css/section_hello.css' %}">
     <link rel="stylesheet" href="{% static 'css/section_skills.css' %}">
     <link rel="stylesheet" href="{% static 'css/section_education.css' %}">
     <link rel="stylesheet" href="{% static 'css/section_links.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact_form.css' %}">
     <style>
         html {
             scroll-behavior: smooth;
         }
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
         body {
-            background: linear-gradient(270deg, #2F4F4F, #DCDCDC);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            background: #333333;
+            color: #00FF00;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
             padding-top: 60px;
         }
         section {
@@ -36,6 +31,17 @@
             box-sizing: border-box;
             text-align: center;
         }
+        #skills, #education, #links, #contact-form {
+            padding: 20px;
+        }
+        .welcome-header {
+            color: #00FF00;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -46,13 +52,24 @@
 
     <nav class="navbar">
         <ul class="navbar-nav">
-            <li><a href="#hello">Hello</a></li>
+            <li><a href="#hello" id="hello-button" class="blinking">Hello</a></li>
+{#            <li><a href="#hello">Hello</a></li>#}
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#links">Links</a></li>
             <li><a href="#contact-form">Contact Form</a></li>
         </ul>
     </nav>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const helloButton = document.getElementById("hello-button");
+
+        helloButton.addEventListener("click", function() {
+            helloButton.classList.remove("blinking");
+        });
+    });
+    </script>
 
     <section id="hello">
     <div class="hello-container">

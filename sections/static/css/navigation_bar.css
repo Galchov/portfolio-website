@@ -1,40 +1,48 @@
-.welcome-header {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #007bff;
-    padding: 15px 0;
-    margin-top: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 2px solid #00FF00;
+    padding: 10px;
+    z-index: 10;
 }
 
-/* Navbar Buttons */
 .navbar-nav {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-.navbar-nav li {
-    margin: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar-nav a {
+    color: #00FF00;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.1em;
     text-decoration: none;
-    color: white;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    margin: 0 15px;
+    padding: 5px 10px;
+    border: 1px solid #00FF00;
+    transition: background-color 0.3s ease;
 }
 
 .navbar-nav a:hover {
-    background-color: #0056b3;
+    background-color: #00FF00;
+    color: #1a1a1a;
+}
+
+/* Blinking effect for the 'Hello' button */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.blinking {
+    animation: blink 1s infinite;
 }
