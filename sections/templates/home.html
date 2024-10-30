@@ -150,11 +150,19 @@
     </p>
     </section>
 
+
+
     <section id="contact-form">
+        {% if email_sent %}
+            <div class="success-message">
+                <h2>Thank you, {{ sender_name }}!</h2>
+                <p>Your email has been sent successfully!</p>
+            </div>
+        {% endif %}
         <h2>Get In Touch</h2>
-        <form action="{% url 'home' %}" method="POST" class="contact-form">
+        <form method="POST" class="contact-form">
             {% csrf_token %}
-            {{ form.as_p }}
+
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
