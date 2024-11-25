@@ -1,11 +1,27 @@
+#skills h2 {
+    font-family: fantasy;
+    font-size: 2.0em;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 15px;
+
+    background-color: #0682e4;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+
 .skills-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .key-skills {
-    width: 100%;
+    width: 150%;
     margin-right: 70px;
     margin-left: 70px;
 }
@@ -25,14 +41,14 @@
 }
 
 .key-skills li {
-    margin: 5px 0;
     padding: 5px;
     border: 1px solid #000000;
+    margin-bottom: 20px;
 }
 
 
 .tech-skills {
-    width: 100%;
+    width: 150%;
     margin-left: 70px;
     margin-right: 70px;
 }

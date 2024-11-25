@@ -1,20 +1,38 @@
+#education h2 {
+    font-family: fantasy;
+    font-size: 2.0em;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 15px;
+
+    background-color: #0682e4;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
 .education-description {
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .education-description p {
     font-size: 16px;
-    margin-bottom: 15px;
+    margin: 20px;
 }
 
 .education-description ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .education-description li {
     padding: 5px 0;
+    margin: 20px;
 }
