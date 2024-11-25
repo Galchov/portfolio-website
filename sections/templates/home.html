@@ -16,13 +16,15 @@
             scroll-behavior: smooth;
         }
         body {
-            background: #333333;
-            color: #00FF00;
-            font-family: "Courier New", Courier, monospace;
+            background: #e3e3e3;
+            color: #000000;
+            font-family: fantasy;
             margin: 0;
             padding-top: 60px;
+            {#overflow: hidden;#}
         }
         section {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,7 +32,7 @@
             min-height: 100vh;
             box-sizing: border-box;
             text-align: center;
-            border-top: 5px solid #00FF00;
+            border-top: 5px solid #0682e4;
             padding-top: 20px;
             margin-top: 30px;
             padding-bottom: 20px;
@@ -40,7 +42,7 @@
             padding: 20px;
         }
         .welcome-header {
-            color: #00FF00;
+            color: #000000;
             font-family: "Courier New", Courier, monospace;
             font-size: 2em;
             text-align: center;
@@ -65,15 +67,6 @@
         </ul>
     </nav>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const helloButton = document.getElementById("hello-button");
-
-        helloButton.addEventListener("click", function() {
-            helloButton.classList.remove("blinking");
-        });
-    });
-    </script>
 
     <section class="code-section">
     <div class="code-display">
@@ -86,6 +79,7 @@
     </div>
     </section>
     <script src="{% static 'js/code_box.js' %}"></script>
+
 
     <section id="hello">
     <div class="hello-container">
@@ -105,6 +99,7 @@
     </div>
     </section>
 
+
     <section id="skills">
     <h2>Skills</h2>
     <div class="skills-container">
@@ -120,12 +115,21 @@
             <h3>Technical Skills</h3>
             <ul>
                 {% for skill in tech_skills %}
-                    <li>{{ skill.name }}</li>
+                    <div class="skills">
+                        <div class="skill">
+                            <span>{{ skill.name }}</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: {{ skill.proficiency }}%;"></div>
+                                <span class="percentage">{{ skill.proficiency }}%</span>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </ul>
         </div>
     </div>
     </section>
+
 
     <section id="education">
     <h2>Education</h2>
@@ -151,7 +155,6 @@
     </section>
 
 
-
     <section id="contact-form">
         {% if email_sent %}
             <div class="success-message">
@@ -175,6 +178,33 @@
             <button type="submit">Submit</button>
         </form>
     </section>
+
+
+    {# Creating blinking effect for the 'Hello' button #}
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const helloButton = document.getElementById("hello-button");
+
+        helloButton.addEventListener("click", function() {
+            helloButton.classList.remove("blinking");
+        });
+    });
+    </script>
+
+
+    {# Loading the progress bars of Technical Skills on page reload #}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const progressBars = document.querySelectorAll(".progress-bar");
+            progressBars.forEach((bar) => {
+                const width = bar.style.width;
+                bar.style.width = "0";
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
 
 </body>
 </html>

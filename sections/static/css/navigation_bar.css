@@ -1,13 +1,22 @@
+/* Position (Remains on top of the screen at all times) */
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;
-    background-color: #1a1a1a;
-    border: 2px solid #00FF00;
-    padding: 10px;
-    z-index: 10;
+    left: 0;
+    right: 0;
+    width: 60%;
+    margin: 0 auto;
+    display: flex; /* Ensure horizontal alignment */
+    justify-content: space-around; /* Space out the buttons evenly */
+    padding: 10px 0;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    border-radius: 15px; /* Rounded the corners */
+
+    background-color: #0682e4;
+    border: 2px solid #ffffff;
 }
 
+/* Navbar buttons arrangement */
 .navbar-nav {
     list-style-type: none;
     padding: 0;
@@ -17,19 +26,20 @@
     justify-content: center;
 }
 
+/* Navbar buttons style */
 .navbar-nav a {
-    color: #00FF00;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1.1em;
+    font-family: fantasy;
+    font-size: 1.5em;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 20px;
     padding: 5px 10px;
-    border: 1px solid #00FF00;
     transition: background-color 0.3s ease;
+    color: #ffffff;
 }
 
 .navbar-nav a:hover {
-    background-color: #00FF00;
+    border-radius: 5px;
+    background-color: #ffffff;
     color: #1a1a1a;
 }
 
