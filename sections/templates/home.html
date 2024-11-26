@@ -158,7 +158,7 @@
     <section id="contact-form">
         {% if email_sent %}
             <div class="success-message">
-                <h2>Thank you, {{ sender_name }}!</h2>
+                <h3>Thank you, {{ sender_name }}!</h3>
                 <p>Your email has been sent successfully!</p>
             </div>
         {% endif %}
@@ -166,15 +166,18 @@
         <form method="POST" class="contact-form">
             {% csrf_token %}
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
+            <div class="row">
+                <div class="field-container">
+                    <label for="name">Name / Company:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="field-container">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
             <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
+            <textarea id="message" name="message" rows="6" required></textarea>
             <button type="submit">Submit</button>
         </form>
     </section>
