@@ -1,17 +1,23 @@
 .hello-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     max-width: 1200px;
+    padding: 0;
     margin: 0 auto;
-    padding: 20px;
+}
+
+.hello-container h2 {
+    margin: 0;
 }
 
 .hello-image {
-    width: 30%;
+    width: 320px;
     height: auto;
     margin-right: 20px;
     border-radius: 8px;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .hello-description {
@@ -19,4 +25,13 @@
     text-align: left;
     font-size: 1.2em;
     line-height: 1.6;
+    min-width: 700px;
+    max-width: 700px;
+    margin-top: 0;
+    padding: 0;
+    height: 100px;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
