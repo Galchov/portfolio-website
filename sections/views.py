@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-from .models import Skill
+from .models import Skill, SocialMedia
 from .forms import ContactForm
 
 
@@ -41,6 +41,7 @@ def home(request):
 
     key_skills = Skill.objects.filter(is_key_skill=True)
     tech_skills = Skill.objects.filter(is_key_skill=False)
+    social_media = SocialMedia.objects.all()
 
     context.update({
         'form': form,
@@ -48,6 +49,7 @@ def home(request):
         'email_sent': email_sent,
         'key_skills': key_skills,
         'tech_skills': tech_skills,
+        'social_media': social_media,
     })
 
     return render(request, 'home.html', context)

@@ -149,10 +149,14 @@
 
     <section id="links">
     <h2>Connect with Me</h2>
-    <p>
-        <a href="https://www.linkedin.com/in/zdravko-galchov-b2354b333/" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/Galchov" target="_blank">GitHub</a>
-    </p>
+            <div class="link">
+                {% for link in social_media %}
+                    <a href="{{ link.social_media_link }}" target="_blank">
+                        <img src="{% static link.icon_path %}" alt="{{ link.social_media_name }}">
+                    </a>
+                    {% if not forloop.last %}|{% endif %}
+                {% endfor %}
+            </div>
     </section>
 
 

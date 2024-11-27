@@ -57,25 +57,18 @@ class Education(models.Model):
     )
 
 
-class Contact(models.Model):
-    email = models.EmailField(
+class SocialMedia(models.Model):
+    social_media_name = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-    phone = models.CharField(
-        max_length=20,
+    social_media_link = models.URLField(
         blank=True,
         null=True,
     )
-    linkedin_url = models.URLField(
-        blank=True,
-        null=True,
-    )
-    github_url = models.URLField(
-        blank=True,
-        null=True,
-    )
-    telegram_link = models.URLField(
+    icon_path = models.CharField(
+        max_length=255,
         blank=True,
         null=True,
     )
