@@ -15,10 +15,15 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
+    <script src="{% static 'js/code_box.js' %}"></script>
     <script src="{% static 'js/hello.js' %}"></script>
+    <script src="{% static 'js/skills_bars.js' %}"></script>
+
+
     <header class="welcome-header">
         <h1>Welcome to my portfolio</h1>
     </header>
+
 
     <nav class="navbar">
         <ul class="navbar-nav">
@@ -41,7 +46,6 @@
         <button class="nav-button" id="next-button">&gt;</button>
     </div>
     </section>
-    <script src="{% static 'js/code_box.js' %}"></script>
 
 
     <section id="hello">
@@ -150,32 +154,6 @@
         </form>
     </section>
 
-
-    {# Creating blinking effect for the 'Hello' button #}
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const helloButton = document.getElementById("hello-button");
-
-        helloButton.addEventListener("click", function() {
-            helloButton.classList.remove("blinking");
-        });
-    });
-    </script>
-
-
-    {# Loading the progress bars of Technical Skills on page reload #}
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const progressBars = document.querySelectorAll(".progress-bar");
-            progressBars.forEach((bar) => {
-                const width = bar.style.width;
-                bar.style.width = "0";
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-        });
-    </script>
 
 </body>
 </html>
