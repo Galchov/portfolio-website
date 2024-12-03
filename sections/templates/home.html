@@ -5,54 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/section_hello.css' %}">
-    <link rel="stylesheet" href="{% static 'css/section_skills.css' %}">
-    <link rel="stylesheet" href="{% static 'css/section_education.css' %}">
-    <link rel="stylesheet" href="{% static 'css/section_links.css' %}">
-    <link rel="stylesheet" href="{% static 'css/contact_form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/code_box.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome_section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_skills.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_certificates.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section_contacts.css' %}">
 </head>
 <body>
-    <script src="{% static 'js/code_box.js' %}"></script>
-    <script src="{% static 'js/hello.js' %}"></script>
-    <script src="{% static 'js/skills_bars.js' %}"></script>
-
-
-    <header class="welcome-header">
-        <h1>Welcome to my portfolio</h1>
-    </header>
 
 
     <nav class="navbar">
         <ul class="navbar-nav">
-            <li><a href="#hello" id="hello-button" class="blinking">Hello</a></li>
+            <li><a href="#hello">Hello</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#links">Links</a></li>
-            <li><a href="#contact-form">Contact Form</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contacts">Contacts</a></li>
         </ul>
     </nav>
 
 
-    <section class="code-section">
-    <div class="code-display">
-        <button class="nav-button" id="prev-button">&lt;</button>
-        <div class="code-box">
-            <h3 id="code-title"></h3>
-            <pre><code id="code-snippet"></code></pre>
-        </div>
-        <button class="nav-button" id="next-button">&gt;</button>
+    <section id="hello">
+    <div class="hello-section">
+        <h2>Hello, my name is Zdravko</h2>
     </div>
     </section>
 
 
-    <section id="hello">
-    <div class="hello-container">
-        <img src="{% static 'images/profile.png' %}" alt="Your Image" class="hello-image">
+    <section id="about">
+    <div class="about-container">
+        <img src="{% static 'images/profile.jpg' %}" alt="Your Image" class="hello-image">
         <div class="hello-description">
-            <h2>Hello Friend</h2>
             <p id="typewriter-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                 when an unknown printer took a galley of type and scrambled it to
@@ -98,9 +83,9 @@
     </section>
 
 
-    <section id="education">
+    <section id="certificates">
     <h2>My education</h2>
-    <div class="education-description">
+    <div class="certificate-description">
         <p>
             I have a strong educational background that has equipped me with the necessary skills and knowledge
             to excel in my field. Here are some of the notable qualifications I have achieved:
@@ -114,20 +99,8 @@
     </section>
 
 
-    <section id="links">
-    <h2>Connect with Me</h2>
-            <div class="link">
-                {% for link in social_media %}
-                    <a href="{{ link.social_media_link }}" target="_blank">
-                        <img src="{% static link.icon_path %}" alt="{{ link.social_media_name }}">
-                    </a>
-                    {% if not forloop.last %}|{% endif %}
-                {% endfor %}
-            </div>
-    </section>
-
-
-    <section id="contact-form">
+    <section id="contacts">
+    <div class="contact-form">
         {% if email_sent %}
             <div class="success-message">
                 <h3>Thank you!</h3>
@@ -135,7 +108,7 @@
             </div>
         {% endif %}
         <h2>Get In Touch</h2>
-        <form method="POST" class="contact-form">
+        <form method="POST" class="contact-form-fields">
             {% csrf_token %}
 
             <div class="row">
@@ -152,8 +125,19 @@
             <textarea id="message" name="message" rows="6" required></textarea>
             <button type="submit">Submit</button>
         </form>
+    </div>
+    <div class="link">
+        {% for link in social_media %}
+            <a href="{{ link.social_media_link }}" target="_blank">
+                <img src="{% static link.icon_path %}" alt="{{ link.social_media_name }}">
+            </a>
+            {% if not forloop.last %}|{% endif %}
+        {% endfor %}
+    </div>
     </section>
 
+    <script src="{% static 'js/about.js' %}"></script>
+    <script src="{% static 'js/skills_bars.js' %}"></script>
 
 </body>
 </html>
