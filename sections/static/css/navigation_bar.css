@@ -1,0 +1,117 @@
+.navbar {
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #121212;
+    --navbar-height: 60px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background-color: #121212;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.navbar-nav.active {
+    display: flex;
+}
+
+.navbar-nav li {
+    margin: 10px 0;
+}
+
+.navbar-nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.navbar-nav a:hover {
+    border-radius: 15px;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+    color: #121212;
+}
+
+/* Tablets / Large Tablets */
+@media (min-width: 769px) {
+    .navbar-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-nav li {
+        margin: 0 10px;
+    }
+
+    .navbar-nav li {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1025px) {
+    .navbar-container {
+        max-width: 1400px;
+        padding: 0 40px;
+        justify-content: center;
+    }
+
+    .navbar-nav li {
+        margin: 0 15px;
+    }
+
+    .navbar-nav li a {
+        font-size: 1.3rem;
+        padding: 15px 25px;
+    }
+}

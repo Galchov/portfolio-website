@@ -17,13 +17,18 @@
 
 
     <nav class="navbar">
-        <ul class="navbar-nav">
-            <li><a href="#hello">Hello</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-        </ul>
+        <div class="navbar-container">
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+            <ul class="navbar-nav">
+                <li><a href="#hello">Hello</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </div>
     </nav>
 
 
@@ -138,6 +143,7 @@
 
     <script src="{% static 'js/about.js' %}"></script>
     <script src="{% static 'js/skills_bars.js' %}"></script>
+    <script src="{% static 'js/toggle_navbar.js' %}"></script>
 
 </body>
 </html>
