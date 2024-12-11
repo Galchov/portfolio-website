@@ -14,11 +14,11 @@ body {
 section {
     height: calc(100vh - var(--navbar-height));
     padding-top: var(--navbar-height);
-    margin-top: var(--navbar-height);
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--navbar-height));
+    margin: 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
