@@ -1,12 +1,17 @@
+:root {
+    --navbar-height: 50px;
+}
+
 .navbar {
     width: 100%;
+    height: var(--navbar-height);
     padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     background-color: #121212;
-    --navbar-height: 60px;
+    align-items: center;
 }
 
 .navbar-container {
@@ -69,6 +74,10 @@
 
 /* Tablets / Large Tablets */
 @media (min-width: 769px) {
+    :root {
+        --navbar-height: 70px;
+    }
+
     .navbar-container {
         display: flex;
         justify-content: center;
@@ -100,6 +109,10 @@
 
 /* Laptops and Desktops */
 @media (min-width: 1025px) {
+    :root {
+        --navbar-height: 80px;
+    }
+
     .navbar-container {
         max-width: 1400px;
         padding: 0 40px;

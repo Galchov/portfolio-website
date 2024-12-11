@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #121212;
     color: #f0f0f0;
@@ -8,11 +12,17 @@ body {
 }
 
 section {
+    height: calc(100vh - var(--navbar-height));
+    padding-top: var(--navbar-height);
+    margin-top: var(--navbar-height);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
     min-height: 100vh;
-    padding: 20px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-top: 5px solid blue;
 }
 
 h2, h3 {
@@ -30,7 +40,6 @@ h3 {
 }
 
 #hello {
-    padding-top: 60px;
     background-color: #1c1c1c;
 }
 
@@ -52,14 +61,8 @@ h3 {
 
 /* Tablets / Large Tablets */
 @media (min-width: 769px) {
-    #hello {
-        padding-top: 80px;
-    }
 }
 
 /* Laptops and Desktops */
 @media (min-width: 1025px) {
-    #hello {
-        padding-top: 100px;
-    }
 }
