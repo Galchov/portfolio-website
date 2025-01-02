@@ -1,0 +1,84 @@
+#skills {
+    padding: 60px 20px;
+    background-color: #121212;
+    text-align: center;
+}
+
+#skills h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.key-skills,
+.tech-skills {
+    width: 100%;
+    max-width: 600px;
+}
+
+.key-skills h3,
+.tech-skills h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.key-skills ul,
+.tech-skills ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.key-skills ul li {
+    font-size: 1rem;
+    color: #cccccc;
+    margin: 10px 0;
+}
+
+.skill {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.skill span {
+    display: block;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 25px;
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid white;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 15px;
+    width: 0%;
+    transition: width 1s ease-in-out;
+}
+
+.percentage {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: white;
+    font-weight: bold;
+}

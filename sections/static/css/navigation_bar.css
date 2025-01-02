@@ -12,15 +12,17 @@
     z-index: 1000;
     background-color: #121212;
     align-items: center;
+    justify-content: center;
 }
 
 .navbar-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
 }
 
 .navbar-toggle {
